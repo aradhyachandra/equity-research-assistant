@@ -1396,4 +1396,4 @@ PYTHONPATH=src .venv/bin/python -m erp.db.load_facts --csv data/sample/facts_sam
 
 ## 2026-10-10: v1.1 test split run (once)
 - Run 20261010-201131_159cd17b on committed code ecc05c6. Full system: numeric 15 of 17, behaviour 22 of 23, unsupported numeric claims 0 of 40. Naive RAG: numeric 2 of 17, behaviour 19 of 23, unsupported 4 of 18.
-- Failures: V11-B04 correct answer in crore shares scored wrong (scorer does not convert units; left as is). V11-E02 dividend question over-refused by the advice pre-check (real bug, noted in README; not fixed after seeing the test split).
+- Failures: V11-B04 correct answer in crore shares scored wrong (scorer does not convert units; left as is). V11-E02 dividend question over-refused as advice (real bug, noted in README; not fixed after seeing the test split). Correction (U1): the saved route shows the model router refused it, not the pattern pre-check.

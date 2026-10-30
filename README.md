@@ -100,7 +100,8 @@ are loaded with `entry_method = llm_extracted`. The 54 read from the FY26 annual
 its FY25 comparatives) were verified by the author on 2026-10-07 and 2026-10-08. The 100 added in
 D3 from the FY25 and FY24 annual reports (FY25, FY24 and FY23) were verified by the author on
 2026-10-10. The 24 added in D4 (lease interest, right-of-use depreciation and two cash-flow
-working-capital subtotals, FY23-FY26) are not yet verified. When two reports print the same figure, the report for that year is
+working-capital subtotals, FY23-FY26) were verified by the author on 2026-10-10, so all 178 are
+verified. When two reports print the same figure, the report for that year is
 the primary source and the other is a cross-check; every pair agreed. FY23 comes only from the FY24
 report's comparatives. The fuller dataset the plan calls for (FY21 onwards, quarters, hand-keyed
 and double-checked) does not exist yet.
@@ -161,8 +162,9 @@ verifier).
 
 **Results.** The block below is generated from `eval/results/` by `scripts/make_results_table.py`;
 nothing in it is typed by hand. Read it with these caveats:
-- **Small sample, one company.** 20 dev and 21 test questions on TCS FY25/FY26 only, with 12 facts
-  in the database. Gold answers and facts are signed off by the author only (no finance-partner
+- **Small sample, one company.** v1: 20 dev and 21 test questions on TCS FY25/FY26, run when the
+  database held 12 facts. v1.1: 22 dev and 23 test questions on FY23-FY26 with all 178 facts.
+  Gold answers and facts are signed off by the author only (no finance-partner
   review), and the DCF gold is the engine's own output. Read these as counts on a small, hand-built
   set, not as general accuracy figures.
 - **The test split was run once**, on committed code (`f79ff7f`), after all fixes were made on dev;
@@ -278,9 +280,9 @@ This project was built with an AI coding assistant, milestone by milestone, from
   by the author as the working file on 2026-10-04. They **have not been reviewed by a finance
   partner**. DCF eval gold is the engine's own output on those assumptions, so it is a regression
   check, not independent truth.
-- **Facts** (154 in `data/manual/financials_tcs.csv`, FY23-FY26 from three annual reports) were
+- **Facts** (178 in `data/manual/financials_tcs.csv`, FY23-FY26 from three annual reports) were
   read by an AI assistant; the author verified all of them against the report pages (12 on
-  2026-10-07, 42 on 2026-10-08, 100 on 2026-10-10; `verified_by` and `verified_on` in the CSV).
+  2026-10-07, 42 on 2026-10-08, 124 on 2026-10-10; `verified_by` and `verified_on` in the CSV).
   No finance reviewer has checked them.
 - **Runtime model:** `qwen2.5:3b` running locally through Ollama (chosen in a small test on an 8 GB
   MacBook Air; NOTES.md, P0.6). TO VERIFY: its licence. As far as known, the 3B size is under the
@@ -293,9 +295,10 @@ This project was built with an AI coding assistant, milestone by milestone, from
   - Retrieval misses some qualitative questions (e.g. lease interest, dividends; the client
     concentration sentence sits inside a table-heavy chunk). The system then says "not available"
     rather than inventing, but it is still a miss.
-  - Metric substitution is not guarded: the router can map a figure the database does not store to a
-    different metric (seen: "tax expense" answered with profit after tax). Nothing in code checks
-    that the chosen metric matches the figure asked about.
+  - Metric substitution is only partly guarded: when a question names exactly one stored metric or
+    ratio, code rules (E2, E3) use it. Other phrasings can still be mapped to a different metric
+    (seen before E2: "tax expense" answered with profit after tax), and nothing in code checks that
+    the chosen metric matches the figure asked about.
   - Unit conversion has no tool: questions asking for INR million or lakh crore are answered in
     crore (known failures EV-B02, EV-B06).
   - The verifier does not read figures glued to a garbled currency symbol (PDF text extraction
@@ -427,7 +430,7 @@ scripts/clean_clone_check.sh --worktree
 README.md  PROJECT_PLAN.md  PROGRESS.md  NOTES.md  CLAUDE.md / AGENTS.md (instructions for coding tools)
 config/            company, metrics, ratios, DCF, ingest, agent, eval and UI settings (no code)
 data/
-  manual/          financials_tcs.csv (178 facts FY23-FY26, AI-read; 154 verified by the author), dcf_inputs.yaml
+  manual/          financials_tcs.csv (178 facts FY23-FY26, AI-read; all verified by the author), dcf_inputs.yaml
   sample/          facts_sample.csv (the original 12 facts, verified by the author)
   raw/             private data repo checkout with the PDFs (gitignored)
   db/, chroma/     local SQLite database and vector index (gitignored, rebuilt by commands above)
@@ -449,9 +452,10 @@ docs/              plain-language notes per milestone, DEMO.md
 
 ## 11. Limitations and known risks
 
-- One company, one fiscal year of reported figures, 12 facts. Many questions are simply outside the
+- One company, four fiscal years of reported figures (FY23-FY26), 178 facts. Many questions are simply outside the
   data, and the system says so.
-- Every figure in the database and every gold answer still awaits human verification.
+- Every fact and every gold answer is signed off by the author, but no independent finance reviewer
+  has checked them.
 - A 3B local model is the weakest link: routing and wording vary with small prompt changes. The
   design leans on code checks (pre-check, router checks, verifier, template fallback) for that reason.
 - The verifier is strict: any error replaces the model's text with a code-written template answer.
