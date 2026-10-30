@@ -282,9 +282,9 @@ Open questions, TO VERIFY items, and validation TODOs. Newest first.
   results section with dev numbers. Done as asked, labelled in the README as "development-stage
   numbers ... a plumbing check, not a headline". Author to decide whether to keep the dev block in
   the public README or print "not yet run" for both splits until then.
-- **Dev runs are all dirty-tree** (`9da27e5-dirty` x2, `6788b01-dirty`). Re-run dev on committed code,
+- **Dev runs are all dirty-tree** (`f028921-dirty` x2, `b313de7-dirty`). Re-run dev on committed code,
   then `scripts/make_results_table.py --readme`.
-- **questions.jsonl changed since the last dev run**: only `entered_by` changed (commit 5d29315);
+- **questions.jsonl changed since the last dev run**: only `entered_by` changed (commit 38ac5d5);
   no question, gold value or source. The results script warns on any hash change.
 - TO VERIFY: one hang in ChromaDB's Rust bindings (creating a client, main thread waiting) during a
   full test run in a clean clone, in `test_verifier.py`'s last test. Not reproduced in 3 later runs.

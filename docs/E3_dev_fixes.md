@@ -93,7 +93,7 @@ unchanged (5/5/5/5; recall@5 9, recall@10 11, latest share 53 of 60); v1 guardra
 13 (unchanged, the same "industry average" miss).
 
 **v1.1 dev run** `eval/results/v1_1/dev/20261010-195652_3339daff` (full + naive RAG, uncommitted E3
-code on top of 3339daf), compared with E2's `20261010-192232_8f34b9b5`:
+code on top of 8ad7f61), compared with E2's `20261010-192232_8f34b9b5`:
 
 | Metric (full system) | E2 (before) | E3 (after) |
 |---|---|---|

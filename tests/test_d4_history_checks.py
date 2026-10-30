@@ -117,7 +117,7 @@ STATUS = {
              "capex_pct_revenue": "pass", "nwc_pct_incremental_revenue": "pass"},
 }
 
-# Values per share and equity values BEFORE D4 (commit 880a647), exact floats. D4 must not move them.
+# Values per share and equity values BEFORE D4 (commit 90377e9), exact floats. D4 must not move them.
 # base re-pinned 2026-10-10: base revenue growth lowered to a flat 6% by the author (was 1914.8185156593645)
 PINNED = {"base": (1880.5285611688391, 680391.6914407477),
           "bear": (1445.112168857655, 522854.230025379),

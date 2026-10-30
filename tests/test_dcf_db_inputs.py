@@ -17,7 +17,7 @@ Expected figures (INR crore, FY26, data/manual/financials_tcs.csv, AR PDF p.166/
     shares 3,618,087,518 shares = 361.8087518 crore   (old typed value 361.80875, rounded)
 
 PINNED (no change in results): engine output BEFORE D2, with the typed YAML values, recorded on
-2026-10-08 at commit b0358b7:
+2026-10-08 at commit dbce5ed:
     base 1914.8185251855948   equity 692798.0970742435
     bear 1445.1121760470942   equity 522854.230025379
     bull 2351.66131697048     equity 850851.6415164431

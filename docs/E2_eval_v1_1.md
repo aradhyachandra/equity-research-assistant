@@ -70,7 +70,7 @@ The small model kept routing this to `profit_attributable_to_owners` + `non_cont
 
 Run `eval/results/v1_1/dev/20261010-192232_8f34b9b5`: qwen2.5:3b, 22 dev questions, systems `full`
 and `naive_rag` only (left out the verifier-off arm to keep the run under 10 minutes; it took 7). Made
-from **uncommitted code** (`8f34b9b-dirty`): the committed code cannot load the v1.1 file. All 22
+from **uncommitted code** (`08d36ca-dirty`): the committed code cannot load the v1.1 file. All 22
 gold answers are still pending author sign-off, so these are plumbing numbers, not results to quote.
 
 | Category (questions) | Numeric correct, full / naive | Behaviour correct, full / naive |

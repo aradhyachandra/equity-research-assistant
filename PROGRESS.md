@@ -85,7 +85,7 @@ by exact text; H-scoring tests seen failing before the scoring change)
 **Results**
 - Live routing, 20 provisional dev questions: **20 of 20** (unchanged). R2 probes unchanged (5/5/5/5;
   recall@5 9, @10 11, latest 53 of 60). v1 guardrail phrasings 12 of 13 (same known miss).
-- v1.1 dev run `eval/results/v1_1/dev/20261010-195652_3339daff` (full + naive RAG, dirty tree on 3339daf),
+- v1.1 dev run `eval/results/v1_1/dev/20261010-195652_3339daff` (full + naive RAG, dirty tree on 8ad7f61),
   before -> after (full): numeric **12 -> 13 of 16**; behaviour 20 -> 21 of 22; routing tools 17 -> 17 of 20;
   tools and period 16 -> 16 of 20; unsupported 0 of 32 -> 0 of 31; verifier rejections 3 -> 2 of 20.
   Naive RAG unchanged (2 of 16; 14 of 22).
@@ -673,7 +673,7 @@ PYTHONPATH=src:tests .venv/bin/pytest -q tests/test_ui.py tests/test_ui_polish.p
   They do appear in `eval/results/*/run.json` (gitignored) and in the clean-clone temp paths.
 - Emails: none in files. Commit metadata in all 14 commits uses the author's own address
   (aradhyachandra5@gmail.com); decide if that is the public one before pushing.
-- One commit message (5d29315) carries a `Claude-Session:` link to a claude.ai session. Not a secret,
+- One commit message (38ac5d5) carries a `Claude-Session:` link to a claude.ai session. Not a secret,
   but it will be public with the history.
 - Annual-report text: no extracts committed. Paraphrases with figures and page numbers are in
   `eval/questions.jsonl`, `tests/provisional_retrieval_probes.jsonl`, `dcf_inputs.yaml` rationales
@@ -817,8 +817,8 @@ PYTHONPATH=src:tests .venv/bin/pytest -q tests/test_ui.py
   the pre-check future-period refusal, which was then fixed, so it is no longer clean);
   provisional routing 20 of 20; guardrail phrasings 12 of 13 (unchanged, same known miss).
 
-**Dev run** (once, `eval/results/dev/20261004-155610_6788b014`, git 6788b01-dirty: the fixes
-are uncommitted, as asked). Before = M7 run `20261004-143418_9da27e58` (9da27e5-dirty).
+**Dev run** (once, `eval/results/dev/20261004-155610_6788b014`, git b313de7-dirty: the fixes
+are uncommitted, as asked). Before = M7 run `20261004-143418_9da27e58` (f028921-dirty).
 
 | Metric (full system) | before | after |
 |---|---|---|
@@ -883,7 +883,7 @@ EV-E03 passing is luck (different router query found the standalone note PDF 293
 - Test split runs once; results saved: the once-only gate, separate folder and saving are built and
   tested (synthetic question file). **The real test split has NOT been run** (see flags).
 
-**Live dev runs** (qwen2.5:3b, 20 dev questions, git 9da27e5-dirty = this milestone's uncommitted
+**Live dev runs** (qwen2.5:3b, 20 dev questions, git f028921-dirty = this milestone's uncommitted
 code; `eval/results/dev/20261004-142147_9da27e58` and `20261004-143418_9da27e58`). Plumbing
 results: facts 12 of 12 unverified (llm_extracted) and gold 20 of 20 "pending Aradhya check".
 Question-level counts were identical in both runs:
@@ -1395,5 +1395,5 @@ PYTHONPATH=src .venv/bin/python -m erp.db.load_facts --csv data/sample/facts_sam
 - Base revenue growth lowered to a flat 6% (author decision after the D4 history check). Base value per share now INR 1,880.53 (was 1,914.82); bear and bull unchanged. Tests re-pinned. See NOTES.md.
 
 ## 2026-10-10: v1.1 test split run (once)
-- Run 20261010-201131_159cd17b on committed code 159cd17. Full system: numeric 15 of 17, behaviour 22 of 23, unsupported numeric claims 0 of 40. Naive RAG: numeric 2 of 17, behaviour 19 of 23, unsupported 4 of 18.
+- Run 20261010-201131_159cd17b on committed code ecc05c6. Full system: numeric 15 of 17, behaviour 22 of 23, unsupported numeric claims 0 of 40. Naive RAG: numeric 2 of 17, behaviour 19 of 23, unsupported 4 of 18.
 - Failures: V11-B04 correct answer in crore shares scored wrong (scorer does not convert units; left as is). V11-E02 dividend question over-refused by the advice pre-check (real bug, noted in README; not fixed after seeing the test split).

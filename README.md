@@ -165,7 +165,7 @@ nothing in it is typed by hand. Read it with these caveats:
   in the database. Gold answers and facts are signed off by the author only (no finance-partner
   review), and the DCF gold is the engine's own output. Read these as counts on a small, hand-built
   set, not as general accuracy figures.
-- **The test split was run once**, on committed code (`eeaa196`), after all fixes were made on dev;
+- **The test split was run once**, on committed code (`f79ff7f`), after all fixes were made on dev;
   nothing was tuned on it afterwards. The plan's full dataset and hand-built DCF do not exist yet.
 - **Headline metrics** are numeric accuracy and gold-matching citations. The row "all numeric claims
   citing a gold page" swings with answer length and is not a headline (see Known weaknesses).
@@ -185,26 +185,26 @@ _Question sets v1 and v1_1 are different questions (different gold answers and c
 **v1** (`eval/questions.jsonl`), latest finished run:
 
 - Run `20261007-124758_d92bf9a4`, model `qwen2.5:3b`, temperature 0, seed 0, 20 questions.
-- Code: git `d92bf9a` (committed code).
+- Code: git `d642c02` (committed code).
 - Facts unverified by a human: 0 of 12. Gold answers pending author sign-off: 0 of 20.
 
 All finished dev runs (the table shows the last one):
 
-- `20261004-142147_9da27e58`: git `9da27e5`, dirty tree; full-system numeric accuracy 10 of 14
-- `20261004-143418_9da27e58`: git `9da27e5`, dirty tree; full-system numeric accuracy 10 of 14
-- `20261004-155610_6788b014`: git `6788b01`, dirty tree; full-system numeric accuracy 10 of 14
-- `20261007-124758_d92bf9a4`: git `d92bf9a`, committed; full-system numeric accuracy 10 of 14
+- `20261004-142147_9da27e58`: git `f028921`, dirty tree; full-system numeric accuracy 10 of 14
+- `20261004-143418_9da27e58`: git `f028921`, dirty tree; full-system numeric accuracy 10 of 14
+- `20261004-155610_6788b014`: git `b313de7`, dirty tree; full-system numeric accuracy 10 of 14
+- `20261007-124758_d92bf9a4`: git `d642c02`, committed; full-system numeric accuracy 10 of 14
 
 **v1_1** (`eval/questions_v1_1.jsonl`), latest finished run:
 
 - Run `20261010-195652_3339daff`, model `qwen2.5:3b`, temperature 0, seed 0, 22 questions.
-- Code: git `3339daf-dirty` (**dirty tree**: made from uncommitted code; re-run on committed code before quoting).
+- Code: git `8ad7f61-dirty` (**dirty tree**: made from uncommitted code; re-run on committed code before quoting).
 - Facts unverified by a human: 0 of 178. Gold answers pending author sign-off: 0 of 22.
 
 All finished dev runs (the table shows the last one):
 
-- `20261010-192232_8f34b9b5`: git `8f34b9b`, dirty tree; full-system numeric accuracy 12 of 16
-- `20261010-195652_3339daff`: git `3339daf`, dirty tree; full-system numeric accuracy 13 of 16
+- `20261010-192232_8f34b9b5`: git `08d36ca`, dirty tree; full-system numeric accuracy 12 of 16
+- `20261010-195652_3339daff`: git `8ad7f61`, dirty tree; full-system numeric accuracy 13 of 16
 
 | Metric | v1: Full system | v1: Verifier off | v1: Naive RAG | v1_1: Full system | v1_1: Verifier off | v1_1: Naive RAG |
 |---|---|---|---|---|---|---|
@@ -226,13 +226,13 @@ All finished dev runs (the table shows the last one):
 **v1** (`eval/questions.jsonl`), latest finished run:
 
 - Run `20261007-132850_eeaa1965`, model `qwen2.5:3b`, temperature 0, seed 0, 21 questions.
-- Code: git `eeaa196` (committed code).
+- Code: git `f79ff7f` (committed code).
 - Facts unverified by a human: 0 of 12. Gold answers pending author sign-off: 0 of 21.
 
 **v1_1** (`eval/questions_v1_1.jsonl`), latest finished run:
 
 - Run `20261010-201131_159cd17b`, model `qwen2.5:3b`, temperature 0, seed 0, 23 questions.
-- Code: git `159cd17` (committed code).
+- Code: git `ecc05c6` (committed code).
 - Facts unverified by a human: 0 of 178. Gold answers pending author sign-off: 0 of 23.
 
 | Metric | v1: Full system | v1: Verifier off | v1: Naive RAG | v1_1: Full system | v1_1: Verifier off | v1_1: Naive RAG |
