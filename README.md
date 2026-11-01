@@ -1,5 +1,9 @@
 # TCS research assistant
 
+[![Demo: a question typed into the live app, the answer with its source document and page, then the eval result](docs/assets/demo.gif)](docs/assets/demo.mp4)
+
+*20-second demo of the running app (click for the MP4 with sound): one question, its answer, and the annual-report page it cites.*
+
 An AI-assisted equity research tool for one Indian company: it answers questions about Tata
 Consultancy Services (TCS) with figures that carry a source page or a calculation path.
 

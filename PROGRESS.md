@@ -1,5 +1,17 @@
 # PROGRESS
 
+## 2026-11-02 — Launch video staged for the README (not a milestone)
+
+**Done**: 20 s demo video made from the live app (ui-live, qwen2.5:3b) with /brag (slim workflow):
+`docs/assets/demo.mp4`, `demo-poster.png`, `demo.gif`; GIF linked to the MP4 at the top of README.md.
+Working files in `brag-output/` (now gitignored). Hero query V11-A02 asked live: "What was TCS's
+consolidated revenue from operations in FY23?" -> INR 225,458 crore, TCS Integrated Annual Report
+2023-24, PDF p.181 (matches gold). End-card numbers from
+`eval/results/v1_1/test/20261010-201131_159cd17b/report.md`.
+
+**Flags for the author**: the video and GIF show a rendered image of annual-report p.181 (the PDF
+itself stays in `data/raw/`); the app badge reads "Checked by verifier (with warnings)". Not committed.
+
 ## 2026-10-10 — U1: fixed answers for meta questions, accurate refusal reasons
 
 **Done** (tests first: `tests/test_u1_meta_answers.py`, 77 tests, new phrasings only; seen failing at

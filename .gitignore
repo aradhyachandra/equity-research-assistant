@@ -15,3 +15,6 @@ eval/results/
 
 # Local Claude Code settings (machine-specific)
 .claude/
+
+# /brag launch-video working folder (kept locally for review)
+brag-output/
